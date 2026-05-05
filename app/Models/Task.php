@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Task extends Model
+{
+    
+    protected $table = 'tasks';
+
+    protected $fillable = [
+        'user_id',
+        'title', 
+        'status', 
+        'time_spent', 
+        'assignees', 
+        'date', 
+    ];
+
+    public function user():BelongTo
+    {
+        return $this->belongsTo(User::class);
+    }
+}
