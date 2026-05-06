@@ -3,13 +3,13 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>login</title>
+        <title>sigin</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
 
-        <div class="min-h-screen w-full flex items-center justify-center bg-[#F9F5ED] py-12 px-4 sm:px-6 lg:px-8">
+        <div class="min-h-screen w-full flex items-center justify-center bg-[#F9F5ED] py-14 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-sm w-full space-y-8 bg-white p-10 shadow-2xl rounded-2xl border border-gray-100">
 
                         <div class="text-center">
@@ -17,11 +17,23 @@
                                 <p class="mt-2 text-sm text-gray-500">Plase Enter Your infomation</p>
                         </div>
 
-                        <!-- formlogin -->
+                        <!-- formsignin -->
 
-                        <form action="" method="" class="mt-8 space-y-6">
+                        <form action="" method="" class="space-y-6 mt-8">
                                 @csrf
                         <div class="rounded-sm shadow-sm space-y-4">
+
+
+
+                                <div>
+                                        <label for="username" class="block text-sm font-roboto text-gray-700 mb-1">User name</label>
+                                        <input type="username" name="username" id="email" required 
+                                        class="appearance-none relative block w-full py-3 px-4 border border-[#9BB2C4] placeholder-[#9BB2C4] text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9BB2C4] focus:border-transparent transition-all duration-200"
+                                        placeholder="yourname">
+                                </div>         
+
+
+
                                 <div>
                                         <label for="email" class="block text-sm font-roboto text-gray-700 mb-1">Email Address</label>
                                         <input type="email" name="email" id="email" required 
