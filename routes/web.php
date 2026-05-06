@@ -11,6 +11,10 @@ Route::get('/', function () {
 });
 
 
+Route::get('/login', function () {
+    return view('login.index');
+});
+
 // Task route
 
 Route::get('/tasks', function () {
