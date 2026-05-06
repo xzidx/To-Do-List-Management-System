@@ -14,7 +14,7 @@ Route::get('/', function () {
 // Task route
 
 Route::get('/tasks', function () {
-    return view('tasks.index ');
+    return view('tasks.index');
 });
 Route::get('tasks', [TaskController::class, 'show']);
 Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
