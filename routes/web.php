@@ -4,6 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
+
+
+
+
+//profile route
+Route::get('/profile', function () {
+    return view('profile.index');
+});
+Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 
 
 Route::get('/', function () {
