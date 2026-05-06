@@ -10,7 +10,7 @@
 </head>
 <body>
     @section('content')
-    
+     <h1 class="text-2xl font-bold text-gray-800">Dashboard Content</h1>
     @endsection
 </body>
 </html>
