@@ -17,13 +17,14 @@ Route::get('/tasks', function () {
     return view('tasks.index');
 });
 Route::get('tasks', [TaskController::class, 'show']);
-Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('tasks', [TaskController::class, 'index']);
 
 //  use for submit form connect data to UI
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 
 //  create a task
 Route::get('tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+
 
 // can view data stock in request 
 Route::get('tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');

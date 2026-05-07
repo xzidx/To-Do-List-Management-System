@@ -9,12 +9,15 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     
-
-
     public function index()
     {
-        $tasks = Task::all(); 
+        $tasks = Task::paginate(5); 
         return view('tasks.index', compact('tasks'));
+    }
+
+    public function create()
+    {
+        return view('tasks.create');
     }
 
     public function store(Request $request)
