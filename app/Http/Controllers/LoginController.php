@@ -6,9 +6,38 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    
+    // Show login page
     public function index()
     {
-        return view(login.index);
+        return view('login.index');
+    }
+    
+   
+    public function authenticate(Request $request)
+    {
+    
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+
+        $email = $request->email;
+        $password = $request->password;
+
+
+        if ($email === 'khemmonydev@gmail.com' && $password === '123456789') {
+        
+            return redirect('/welcome');
+        }
+
+      
+        return back()->with('error', 'Invalid email or password!');
+    }
+
+    // Logout
+    public function logout()
+    {
+        session()->flush();
+        return redirect('/login');
     }
 }

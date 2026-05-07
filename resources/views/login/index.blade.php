@@ -9,7 +9,7 @@
 </head>
 <body>
 
-        <div class="min-h-screen w-full flex items-center justify-center bg-[#F9F5ED] py-12 px-4 sm:px-6 lg:px-8">
+        <div class="min-h-screen w-full flex items-center justify-center bg-[#F9F5ED] py-2 px-4 sm:px-6 lg:px-8">
                 <div class="max-w-sm w-full space-y-8 bg-white p-10 shadow-2xl rounded-2xl border border-gray-100">
 
                         <div class="text-center">
@@ -18,10 +18,9 @@
                         </div>
 
                         <!-- formlogin -->
-
-                        <form action="" method="" class="mt-8 space-y-6">
+                        <form   method="POST" action="{{ url('login/authenticate') }}" class="mt-8 space-y-6">
                                 @csrf
-                        <div class="rounded-sm shadow-sm space-y-4">
+                        <div class="rounded-sm space-y-2">
                                 <div>
                                         <label for="email" class="block text-sm font-roboto text-gray-700 mb-1">Email Address</label>
                                         <input type="email" name="email" id="email" required 
@@ -63,7 +62,7 @@
 
                                 <div class="flex items-center text-center">
                                         <p class="text-sm text-gray-600 corsor-pointer">Don't have an Account?</p>
-                                        <a href="sign in" class=" text-sm font-medium hover:text-[#9BB2C4] text-[#3700B3] transition-colors my-4">Register</a>
+                                        <a href="{{ route('register') }}" class=" text-sm font-medium hover:text-[#9BB2C4] text-[#3700B3] transition-colors my-4">Register now</a>
         
                                 </div>
 
