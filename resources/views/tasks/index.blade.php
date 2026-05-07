@@ -8,12 +8,9 @@
     <title>Task List</title>
 </head>
 <body">
-    <!-- The Container -->
-    <div class="max-w-7xl mx-auto bg-[#F9F5ED]">
 
-      <!-- The Banner -->
-      <div class="mt-[100px]">
-            <!-- Header -->
+        <div class=" max-w-7xl mx-auto bg-[#F9F5ED] mt-[100px]">
+           
             <div class="bg-white shadow-sm border-b px-8 py-6">
                 <div class="flex justify-between items-center">
                     <h1 class="text-2xl font-bold text-black">Task Lists</h1>
@@ -24,13 +21,13 @@
             <div class="p-8">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                     <div class="flex gap-2">
-                        <button class="px-4 py-2 text-white rounded-lg hover:opacity-90 transition-colors" style="background-color: #9BB2C4;">
+                        <button class="px-4 py-2 text-white bg-[#9BB2C4] rounded-lg hover:opacity-90 transition-colors">
                             All
                         </button>
-                        <button class="px-4 py-2 text-black rounded-lg hover:opacity-90 transition-colors" style="background-color: #9BB2C4;">
+                        <button class="px-4 py-2 text-black rounded-lg hover:opacity-90 transition-colors">
                             Pending
                         </button>
-                        <button class="px-4 py-2 text-black rounded-lg hover:opacity-90 transition-colors" style="background-color: #9BB2C4;">
+                        <button class="px-4 py-2 text-black rounded-lg hover:opacity-90 transition-colors">
                             Completed
                         </button>
                     </div>
@@ -71,7 +68,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-black">Property page</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <img class="h-8 w-8 rounded-full" src="https://picsum.photos/seed/nimol/32/32.jpg" alt="">
+                                        <img class="h-9 w-9 rounded-full" src="{{ asset('images/pf1.png') }}" alt="">
                                         <span class="ml-2 text-sm text-black">Nimol Lim</span>
                                     </div>
                                 </td>
@@ -99,7 +96,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-black">Website Development</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <img class="h-8 w-8 rounded-full" src="https://picsum.photos/seed/nimol2/32/32.jpg" alt="">
+                                        <img class="h-9 w-9 rounded-full" src="{{ asset('images/pf2.png') }}" alt="">
                                         <span class="ml-2 text-sm text-black">Nimol Lim</span>
                                     </div>
                                 </td>
@@ -127,7 +124,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-black">Database Design</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <img class="h-8 w-8 rounded-full" src="https://picsum.photos/seed/nimol3/32/32.jpg" alt="">
+                                        <img class="h-9 w-9 rounded-full" src="{{ asset('images/pf3.png') }}" alt="">
                                         <span class="ml-2 text-sm text-black">Nimol Lim</span>
                                     </div>
                                 </td>
@@ -153,7 +150,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
         </div>
 
     </body>
