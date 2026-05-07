@@ -25,7 +25,7 @@
 
                                         <div>
                                                 <label for="username" class="block text-sm font-roboto text-gray-700 mb-1">User name</label>
-                                                <input type="name" name="username" id="username" required 
+                                                <input type="text" name="name" id="name" required 
                                                 class="appearance-none relative block w-full py-3 px-4 border border-[#9BB2C4] placeholder-[#9BB2C4] text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9BB2C4] focus:border-transparent transition-all duration-200"
                                                 placeholder="name">
                                         </div>         

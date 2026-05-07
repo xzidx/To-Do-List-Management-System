@@ -18,7 +18,7 @@
                         </div>
 
                         <!-- formlogin -->
-                        <form   method="POST" action="{{ url('login/authenticate') }}" class="mt-8 space-y-6">
+                         <form method="POST" action="{{ url('/login/authenticate') }}" class="mt-8 space-y-6">
                                 @csrf
                         <div class="rounded-sm space-y-2">
                                 <div>
@@ -62,7 +62,7 @@
 
                                 <div class="flex items-center text-center">
                                         <p class="text-sm text-gray-600 corsor-pointer">Don't have an Account?</p>
-                                        <a href="{{ route('register') }}" class=" text-sm font-medium hover:text-[#9BB2C4] text-[#3700B3] transition-colors my-4">Register now</a>
+                                        <a href="/register" class=" text-sm font-medium hover:text-[#9BB2C4] text-[#3700B3] transition-colors my-4">Register now</a>
         
                                 </div>
 

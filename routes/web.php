@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\DashboardController;
 
@@ -15,10 +16,9 @@ Route::get('/welcome', function () {
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
 
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'authenticate']);
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
 
 
 // Task route

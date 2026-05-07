@@ -25,7 +25,7 @@ class LoginController extends Controller
         $password = $request->password;
 
 
-        if ($email === 'khemmonydev@gmail.com' && $password === '123456789') {
+        if ($email === 'khemmonydev@gmail.com' && $password === '123456') {
         
             return redirect('/welcome');
         }
