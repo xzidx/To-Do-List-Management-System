@@ -4,64 +4,26 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProfileController;
-
-
-
-
-//profile route
-Route::get('/profile', function () {
-    return view('profile.index');
-});
-Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
-
+use App\Http\Controllers\ProfileController;  // ← make sure this is here
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// ─── Profile ───────────────────────────────────────────
+Route::get('/profile',  [ProfileController::class, 'index'])->name('profile.index');
+Route::put('/profile',  [ProfileController::class, 'update'])->name('profile.update');
 
-// Task route
+// ─── Tasks ─────────────────────────────────────────────
+Route::get('/tasks',            [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/tasks/create',     [TaskController::class, 'create'])->name('tasks.create');
+Route::post('/tasks',           [TaskController::class, 'store'])->name('tasks.store');
+Route::get('/tasks/{id}',       [TaskController::class, 'show'])->name('tasks.show');
+Route::get('/tasks/{id}/edit',  [TaskController::class, 'edit'])->name('tasks.edit');
+Route::delete('/tasks/{id}',    [TaskController::class, 'destroy'])->name('tasks.destroy');
 
-Route::get('/tasks', function () {
-    return view('tasks.index ');
-});
-Route::get('tasks', [TaskController::class, 'show']);
-Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
+// ─── Dashboard ─────────────────────────────────────────
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-//  use for submit form connect data to UI
-Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
-
-//  create a task
-Route::get('tasks/create', [TaskController::class, 'create'])->name('tasks.create');
-
-// can view data stock in request 
-Route::get('tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
-
-// function form to edit 
-Route::get('tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
-
-// function to delete 
-Route::delete('tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
-
-
-
-
-// Dashboard route
-
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
-Route::get('dashboard', [DashboardController::class, 'index']);
-
-
-
-
-
-// notification route 
-
-Route::get('/notifications', function () {
-    return view('notifications.index');
-});
-
-Route::get('notifications', [NotificationController::class, 'index']);
+// ─── Notifications ─────────────────────────────────────
+Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
