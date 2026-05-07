@@ -10,7 +10,11 @@
 </head>
 <body>
     @section('content')
-     <h1 class="text-2xl font-bold text-gray-800">Dashboard Content</h1>
+        <!-- page name -->
+     <h1 class="text-2xl font-bold text-gray-800">Tasks Dashboard</h1>
+
+     <div></div>
+
     @endsection
 </body>
 </html>
