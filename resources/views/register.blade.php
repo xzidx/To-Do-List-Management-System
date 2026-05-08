@@ -19,7 +19,7 @@
                                 <p class="mt-2 text-sm text-gray-500">Let's get you all set up so you can access your personal account.</p>
                         </div>
 
-                        <form method="POST" action="/register" class="mt-8 space-y-6">
+                        <form method="POST" action="/register/authenticate" class="mt-8 space-y-6">
                                 @csrf
                                 <div class="rounded-sm space-y-2">
 

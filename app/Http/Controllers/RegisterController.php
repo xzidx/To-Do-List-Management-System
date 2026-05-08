@@ -9,10 +9,9 @@ class RegisterController extends Controller
     // Show registration page
     public function index()
     {
-        return view('register'); // or 'register.index' depending on your view path
+        return view('register.index'); 
     }
     
-    // Process registration
     public function authenticate(Request $request)
     {
         $request->validate([
@@ -21,7 +20,6 @@ class RegisterController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        // Hardcoded check (same pattern as your LoginController)
         $name = $request->name;
         $email = $request->email;
         $password = $request->password;
@@ -33,10 +31,4 @@ class RegisterController extends Controller
         return back()->with('error', 'Invalid registration details!');
     }
 
-    // Logout (optional)
-    public function logout()
-    {
-        session()->flush();
-        return redirect('/register');
-    }
 }

@@ -17,8 +17,7 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
 
 Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'authenticate']);
-
+Route::post('/register', [RegisterController::class, 'authenticate']); 
 
 
 // Task route
