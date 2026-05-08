@@ -26,6 +26,8 @@ Route::get('tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
 // function form to edit 
 Route::get('tasks/edit/{id}', [TaskController::class, 'edit'])->name('tasks.edit');
 
+
+
 // function to delete 
 Route::delete('tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
