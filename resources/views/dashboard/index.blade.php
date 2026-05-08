@@ -48,8 +48,8 @@
     <div class="w-full h-[80px] mt-[50px] flex items-center justify-center gap-4">
 
             <!-- Search Form -->
-            <form class="w-[85%] h-[60px] border-2 border-[#888888] rounded-md flex items-center px-4 bg-white">
-
+            <form class="w-[90%] h-[55px] border-2 border-[#888888] rounded-md flex items-center px-4 bg-white">
+            
                 <!-- Search Icon -->
                 <i class="fa-solid fa-magnifying-glass text-gray-500 text-[20px]"></i>
 
@@ -63,7 +63,7 @@
             </form>
 
             <!-- Filter Form -->
-            <form class="w-[10%] h-[60px] border-2 border-[#888888] rounded-md flex items-center justify-center bg-white cursor-pointer hover:bg-gray-100">
+            <form class="w-[10%] h-[55px] border-2 border-[#888888] rounded-md flex items-center justify-center bg-white cursor-pointer hover:bg-gray-100">
 
                 <button type="submit" class="flex items-center text-xl gap-2">
                     <i class="fa-solid fa-filter text-[20px] text-gray-600"></i>
