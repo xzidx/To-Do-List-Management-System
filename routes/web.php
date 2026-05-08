@@ -11,13 +11,7 @@ Route::get('/', function () {
 });
 
 
-// Task route
-
-Route::get('/tasks', function () {
-    return view('tasks.index ');
-});
-Route::get('tasks', [TaskController::class, 'show']);
-Route::get('tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 
 //  use for submit form connect data to UI
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
@@ -25,11 +19,12 @@ Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 //  create a task
 Route::get('tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 
+
 // can view data stock in request 
 Route::get('tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
 
 // function form to edit 
-Route::get('tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::get('tasks/edit/{id}', [TaskController::class, 'edit'])->name('tasks.edit');
 
 // function to delete 
 Route::delete('tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
