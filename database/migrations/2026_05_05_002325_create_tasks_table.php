@@ -18,6 +18,8 @@ return new class extends Migration
             $table->time('time_spent')->nullable();
             $table->string('assignees');
             $table->date('date');
+            $table->string('duration')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
