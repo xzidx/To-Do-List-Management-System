@@ -11,6 +11,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/notification', function () {
+    return view('notification.index');
+});
+
+
 // Task route
 
 Route::get('/tasks', function () {
