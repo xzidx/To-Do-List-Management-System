@@ -16,10 +16,12 @@ class Task extends Model
         'status', 
         'time_spent', 
         'assignees', 
-        'date', 
+        'date',
+        'duration',
+        'description',
     ];
 
-    public function user():BelongTo
+    public function user():BelongsTo
     {
         return $this->belongsTo(User::class);
     }
