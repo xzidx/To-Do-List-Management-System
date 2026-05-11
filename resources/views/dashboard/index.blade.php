@@ -21,25 +21,25 @@
             <div class="w-[330px] h-[120px] flex flex-col items-center justify-center bg-[#FFD4D4] shadow-lg">
                    
                     <h2 class="text-2xl font-semibold">Total Tasks</h2>
-                    <h3 class="text-2xl p-[10px] font-medium"><i class="fa-solid fa-clipboard-check mr-[30px] text-4xl text-[#940B0B]"></i>8</h3>
+                    <h3 class="text-2xl p-[10px] font-medium"><i class="fa-solid fa-clipboard-check mr-[30px] text-4xl text-[#940B0B]"></i>{{ $totalTasks }}</h3>
             </div>
             <!-- -------------- -->
             <div class="w-[330px] h-[120px]  flex flex-col items-center justify-center bg-[#FFF59D] shadow-lg">
                    
                     <h2 class="text-2xl font-semibold">Pending</h2>
-                    <h3 class="text-2xl p-[10px] font-medium"><i class="fa-solid fa-hourglass mr-[30px] text-4xl text-[#D7A10A]"></i>8</h3>
+                    <h3 class="text-2xl p-[10px] font-medium"><i class="fa-solid fa-hourglass mr-[30px] text-4xl text-[#D7A10A]"></i>{{ $pendingTasks }}</h3>
             </div>
             <!-- -------------- -->
              <div class="w-[330px] h-[120px] flex flex-col items-center justify-center bg-[#E3FFD9] shadow-lg">
                    
                     <h2 class="text-2xl font-semibold">Completed</h2>
-                    <h3 class="text-2xl p-[10px] font-medium"><i class="fa-solid fa-calendar-check mr-[30px] text-4xl text-[#4CAF50]"></i>8</h3>
+                    <h3 class="text-2xl p-[10px] font-medium"><i class="fa-solid fa-calendar-check mr-[30px] text-4xl text-[#4CAF50]"></i>{{ $completedTasks }}</h3>
             </div>
              <!-- -------------- -->
             <div class="w-[330px] h-[120px] flex flex-col items-center justify-center bg-[#9BA4D4] shadow-lg">
                    
                     <h2 class="text-2xl font-semibold">In Progress</h2>
-                    <h3 class="text-2xl p-[10px] font-medium"><i class="fa-regular fa-clock mr-[30px] text-4xl text-[#123ABD]"></i>8</h3>
+                    <h3 class="text-2xl p-[10px] font-medium"><i class="fa-regular fa-clock mr-[30px] text-4xl text-[#123ABD]"></i>{{ $inProgressTasks }}</h3>
             </div>
            
      </div>
