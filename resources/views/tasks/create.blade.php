@@ -8,7 +8,7 @@
             
             <div class="flex items-center gap-3">
                 
-                <a href="{{ route('tasks.index') }}" class="text-gray-600 hover:text-gray-800 transition-colors">
+                <a href="{{ route('tasks.index') }}" class="text-gray-600 hover:text-gray-800 ">
                     <i class="fas fa-arrow-left"></i>
                 </a>
                 <h1 class="text-2xl font-bold text-black">Add Task</h1>
@@ -31,8 +31,7 @@
                                 Task Name 
                             </label>
                             
-                            <input type="text" id="task_name" name="task_name" required 
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            <input type="text" id="task_name" name="task_name" class="w-full px-4 py-2 border border-gray-300 rounded-lg "
                                 placeholder="Enter task name">
                         </div>
                         
@@ -42,8 +41,7 @@
                                 Assignee 
                             </label>
                             
-                            <input type="text" id="participant_name" name="participant_name" required 
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-200 "
+                            <input type="text" id="participant_name" name="participant_name"  class="w-full px-4 py-2 border border-gray-300 rounded-lg "
                                 placeholder="Enter assignee name">
                         </div>
                         
@@ -52,8 +50,7 @@
                                 Date 
                             </label>
                             
-                            <input type="date" id="task_date" name="task_date" required 
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  ">
+                            <input type="date" id="task_date" name="task_date"  class="w-full px-4 py-2 border border-gray-300 rounded-lg  ">
                         </div>
                         
                         <div>
@@ -61,9 +58,8 @@
                                 Duration
                             </label>
                             
-                            <input type="text" id="duration" name="duration" 
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg  focus:ring-gray-200 "
-                                placeholder="time">
+                            <input type="text" id="duration" name="duration" class="w-full px-4 py-2 border border-gray-300 rounded-lg "
+                                placeholder="30Minutes">
                         </div>
                     </div>
                     
@@ -72,8 +68,7 @@
                             Status 
                         </label>
 
-                        <select id="status" name="status" required 
-                            class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gray-200 ">
+                        <select id="status" name="status" class="w-full px-4 py-2 border border-gray-200 rounded-lg ">
                             <option value="">Select Status</option>
                             <option value="pending">Pending</option>
                             <option value="in-progress">In Progress</option>
@@ -87,20 +82,18 @@
                             Description
                         </label>
                         
-                        <textarea id="description" name="description" rows="4" 
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical"
+                        <textarea id="description" name="description" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg    "
                             placeholder="Enter task description..."></textarea>
                     </div>
                     
                     <div class="flex justify-end gap-3 pt-4">
                         
-                        <a href="{{ route('tasks.index') }}" 
-                           class="px-6 py-2 bg-gray-100 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors font-medium">
+                        <a href="{{ route('tasks.index') }}" class="px-6 py-2 bg-gray-100 text-gray-700  font-medium">
                             Cancel
                         </a>
                         
                         <button type="submit" 
-                                class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                                class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
                             Create Task
                         </button>
 

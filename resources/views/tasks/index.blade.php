@@ -32,9 +32,11 @@
                         <button class="px-4 py-2 text-black rounded-lg font-medium bg-[#fff] hover:opacity-90 transition-colors">
                             Pending
                         </button>
+                        
                         <button class="px-4 py-2 text-black font-medium bg-[#fff] rounded-lg hover:opacity-90 transition-colors">
                             Completed
                         </button>
+
                     </div>
                     
                     <div class="flex gap-3 items-center">
@@ -52,6 +54,7 @@
                             <i class="fas fa-plus mr-2"></i>
                             <a href="{{ route('tasks.create') }}" class=" hover:text-white">Add Task</a>
                         </button>
+
                     </div>
                 </div>
       
@@ -75,12 +78,16 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-base font-normal text-black">{{ str_pad($task->id, '1') }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-base text-black">{{ $task->title }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
+                                            
                                             <div class="flex items-center">
                                                 <img class="h-9 w-9 rounded-full" src="{{ asset('images/pf1.png') }}" alt="">
                                                 <span class="ml-2 text-base text-black">{{ $task->assignees }}</span>
                                             </div>
+
                                         </td>
+                                        
                                         <td class="px-6 py-4 whitespace-nowrap">
+                                            
                                             @if($task->status == 'pending')
                                                 <span class="px-2 py-1 inline-flex text-sm leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                                     Pending
@@ -95,8 +102,9 @@
                                                 </span>
                                             @endif
                                         </td>
+
                                         <td class="px-6 py-4  text-base text-black">{{ $task->duration ?? '30Minutes' }}</td>
-                                        <td class="px-6 py-4 text-base text-black">{{ \Carbon\Carbon::parse($task->date)->format('d/m/Y') }}</td>
+                                        <td class="px-6 py-4 text-base text-black">{{ $task->date->format('d/m/Y') }}</td>
                                         <td class="px-6 py-4  text-base font-medium">
                                             
                                             <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="inline">
