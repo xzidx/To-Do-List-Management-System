@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\User;
 
 class Task extends Model
 {
@@ -11,7 +12,6 @@ class Task extends Model
     protected $table = 'tasks';
 
     protected $fillable = [
-        'user_id',
         'title', 
         'status', 
         'time_spent', 
@@ -19,6 +19,10 @@ class Task extends Model
         'date',
         'duration',
         'description',
+    ];
+    
+    protected $casts = [
+        'date' => 'date',
     ];
 
     public function user():BelongsTo

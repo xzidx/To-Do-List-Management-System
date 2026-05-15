@@ -15,6 +15,7 @@ Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 
 //  use for submit form connect data to UI
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+Route::patch('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
 
 //  create a task
 Route::get('tasks/create', [TaskController::class, 'create'])->name('tasks.create');
