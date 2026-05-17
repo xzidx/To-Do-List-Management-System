@@ -27,12 +27,12 @@
                 <h2 class="text-xs uppercase tracking-wider text-gray-400 px-2 mb-2">Main</h2>
 
                 <!-- Item -->
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition">
+                <a href="/dashboard" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition">
                     <i class="fa-solid fa-sliders"></i>
                     Dashboard
                 </a>
 
-                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition">
+                <a href="/tasks" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition">
                     <i class="fa-solid fa-list-check"></i>
                     Task
                 </a>
