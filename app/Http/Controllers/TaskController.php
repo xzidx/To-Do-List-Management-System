@@ -5,22 +5,36 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 
-
 class TaskController extends Controller
 {
     
-    public function index()
+    //  search
+   public function index(Request $request)
     {
-        $tasks = Task::all(); 
+        $search = $request->search;
+        $status = $request->status;
+
+        $tasks = Task::when($search, function ($query) use ($search) {
+
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('assignees', 'like', '%' . $search . '%')
+                    ->orWhere('status', 'like', '%' . $search . '%');
+
+            })
+
+            ->when($status, function ($query) use ($status) {
+
+                $query->where('status', $status);
+
+            })
+
+            ->get();
+
         return view('tasks.index', compact('tasks'));
     }
 
-    public function create()
-    {
-        return view('tasks.create');
-    }
 
-
+    // Store task
     public function store(Request $request)
     {
         $task_name = $request->input('task_name');
@@ -42,20 +56,26 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
+
+    // Show single task
     public function show($id)
     {
         $task = Task::findOrFail($id);
+
         return view('tasks.show', compact('task'));
     }
-    
 
-    //edit function
+
+    // Show edit form
     public function edit($id)
     {
         $task = Task::findOrFail($id);
+
         return view('tasks.edit', compact('task'));
     }
 
+
+    // Update task
     public function update(Request $request, $id)
     {
         $task_name = $request->input('task_name');
@@ -64,7 +84,6 @@ class TaskController extends Controller
         $duration = $request->input('duration');
         $status = $request->input('status');
         $description = $request->input('description');
-
 
         $task = Task::findOrFail($id);
         
@@ -81,7 +100,7 @@ class TaskController extends Controller
     }
 
     
-    // delete function 
+    // Delete task
     public function destroy($id)
     {
         $task = Task::find($id);
@@ -95,6 +114,3 @@ class TaskController extends Controller
         return redirect('/tasks');
     }
 }
-
-
-

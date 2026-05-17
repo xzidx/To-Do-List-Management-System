@@ -25,31 +25,55 @@
 
             <div class="p-8">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                    <div class="flex gap-2">
-                        <button class="px-4 py-2 text-white bg-[#9BB2C4] font-medium rounded-lg hover:opacity-90 transition-colors">
-                            All
-                        </button>
-                        <button class="px-4 py-2 text-black rounded-lg font-medium bg-[#fff] hover:opacity-90 transition-colors">
-                            Pending
-                        </button>
-                        
-                        <button class="px-4 py-2 text-black font-medium bg-[#fff] rounded-lg hover:opacity-90 transition-colors">
-                            Completed
-                        </button>
 
+                <!-- fillter -->
+                    <div class="flex gap-2">
+                        <!-- All -->
+                        <a href="{{ route('tasks.index') }}"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors
+                            {{ request('status') == '' ? 'bg-[#9BB2C4] text-white' : 'bg-white text-black' }}">
+                            All
+                        </a>
+
+                        <!-- pending -->
+                        <a href="{{ route('tasks.index', ['status' => 'pending']) }}"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors
+                            {{ request('status') == 'pending' ? 'bg-[#9BB2C4] text-white' : 'bg-white text-black' }}">
+                            Pending
+                        </a>
+
+                        <!-- in-progress -->
+                        <a href="{{ route('tasks.index', ['status' => 'in-progress']) }}"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors
+                            {{ request('status') == 'in-progress' ? 'bg-[#9BB2C4] text-white' : 'bg-white text-black' }}">
+                            In Progress
+                        </a>
+
+                        <!-- completed -->
+                        <a href="{{ route('tasks.index', ['status' => 'completed']) }}"
+                            class="px-4 py-2 rounded-lg font-medium transition-colors
+                            {{ request('status') == 'completed' ? 'bg-[#9BB2C4] text-white' : 'bg-white text-black' }}">
+                            Completed
+                        </a>
                     </div>
                     
                     <div class="flex gap-3 items-center">
-                        <div class="relative">
-                            <input type="text" placeholder="Search task..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64">
+                        <!-- search bar -->
+                       <form action="{{ route('tasks.index') }}" method="GET" class="relative">
+
+                            <input 
+                                type="text" 
+                                name="search"
+                                value="{{ request('search') }}"
+                                placeholder="Search task..." 
+                                class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
+                            >
+
                             <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-                        </div>
-                        
-                        <button class="px-4 py-2 font-medium text-black rounded-lg bg-[#fff] border border-gray-300 hover:opacity-90 transition-colors flex items-center">
-                            <i class="fas fa-filter mr-2"></i>
-                            Filter
-                        </button>
-                    
+
+                        </form>
+
+                        <!-- add tasks -->
                         <button class="px-4 py-2 text-black font-medium rounded-lg hover:opacity-90 transition-colors flex items-center bg-[#9BB2C4]" >
                             <i class="fas fa-plus mr-2"></i>
                             <a href="{{ route('tasks.create') }}" class=" hover:text-white">Add Task</a>
