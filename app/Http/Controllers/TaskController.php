@@ -7,57 +7,57 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    
-    //  search
-   public function index(Request $request)
+    // search + filter
+    public function index(Request $request)
     {
         $search = $request->search;
         $status = $request->status;
 
         $tasks = Task::when($search, function ($query) use ($search) {
-
-                $query->where('title', 'like', '%' . $search . '%')
-                    ->orWhere('assignees', 'like', '%' . $search . '%')
-                    ->orWhere('status', 'like', '%' . $search . '%');
-
+                $query->where(function ($q) use ($search) {
+                    $q->where('title', 'like', "%$search%")
+                      ->orWhere('assignees', 'like', "%$search%")
+                      ->orWhere('status', 'like', "%$search%");
+                });
             })
-
             ->when($status, function ($query) use ($status) {
-
                 $query->where('status', $status);
-
             })
-
+            ->latest()
             ->get();
 
         return view('tasks.index', compact('tasks'));
     }
 
+    // show create
+    public function create()
+    {
+        return view('tasks.create');
+    }
 
-    // Store task
+    // store tasks
     public function store(Request $request)
     {
-        $task_name = $request->input('task_name');
-        $participant_name = $request->input('participant_name');
-        $task_date = $request->input('task_date');
-        $duration = $request->input('duration');
-        $status = $request->input('status');
-        $description = $request->input('description');
+        $request->validate([
+            'task_name' => 'required',
+            'participant_name' => 'required',
+            'task_date' => 'required',
+            'status' => 'required',
+        ]);
 
         Task::create([
-            'title' => $task_name,
-            'assignees' => $participant_name,
-            'date' => $task_date,
-            'status' => $status,
-            'duration' => $duration,
-            'description' => $description,
+            'title' => $request->task_name,
+            'assignees' => $request->participant_name,
+            'date' => $request->task_date,
+            'status' => $request->status,
+            'duration' => $request->duration,
+            'description' => $request->description,
         ]);
 
         return redirect()->route('tasks.index');
     }
 
-
-    // Show single task
+    // show single task
     public function show($id)
     {
         $task = Task::findOrFail($id);
@@ -65,8 +65,7 @@ class TaskController extends Controller
         return view('tasks.show', compact('task'));
     }
 
-
-    // Show edit form
+    // edit form
     public function edit($id)
     {
         $task = Task::findOrFail($id);
@@ -74,43 +73,36 @@ class TaskController extends Controller
         return view('tasks.edit', compact('task'));
     }
 
-
-    // Update task
+    // update task
     public function update(Request $request, $id)
     {
-        $task_name = $request->input('task_name');
-        $participant_name = $request->input('participant_name');
-        $task_date = $request->input('task_date');
-        $duration = $request->input('duration');
-        $status = $request->input('status');
-        $description = $request->input('description');
+        $request->validate([
+            'task_name' => 'required',
+            'participant_name' => 'required',
+            'task_date' => 'required',
+            'status' => 'required',
+        ]);
 
         $task = Task::findOrFail($id);
-        
+
         $task->update([
-            'title' => $task_name,
-            'assignees' => $participant_name,
-            'date' => $task_date,
-            'status' => $status,
-            'duration' => $duration,
-            'description' => $description,
+            'title' => $request->task_name,
+            'assignees' => $request->participant_name,
+            'date' => $request->task_date,
+            'status' => $request->status,
+            'duration' => $request->duration,
+            'description' => $request->description,
         ]);
 
         return redirect()->route('tasks.index');
     }
 
-    
-    // Delete task
+    // Delete 
     public function destroy($id)
     {
-        $task = Task::find($id);
-        
-        if (!$task) {
-            return redirect('/tasks');
-        }
-
+        $task = Task::findOrFail($id);
         $task->delete();
 
-        return redirect('/tasks');
+        return redirect()->route('tasks.index');
     }
 }
