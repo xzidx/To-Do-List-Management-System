@@ -11,8 +11,10 @@ Route::get('/', function () {
 });
 
 // ─── Profile ───────────────────────────────────────────
-Route::get('/profile',  [ProfileController::class, 'index'])->name('profile.index');
-Route::put('/profile',  [ProfileController::class, 'update'])->name('profile.update');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
 
 // ─── Tasks ─────────────────────────────────────────────
 Route::get('/tasks',            [TaskController::class, 'index'])->name('tasks.index');
