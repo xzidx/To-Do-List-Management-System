@@ -13,6 +13,12 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'authenticate']); 
+
 
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 
