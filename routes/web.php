@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TestController;
 
 
 Route::get('/', function () {
@@ -53,3 +54,7 @@ Route::get('/notifications', function () {
 });
 
 Route::get('notifications', [NotificationController::class, 'index']);
+
+
+Route::get('/test', [TestController::class, 'index']);
+Route::post('/test', [TestController::class, 'store']);
